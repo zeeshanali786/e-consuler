@@ -95,6 +95,10 @@ def background_extraction_task(couple_id: str, speaker: str, utterance: str):
     api_db.update_profile(couple_id, current_profile)
     print(f"[Async Worker] Database update committed successfully.")
 
+@app.get("/sample", tags=["Sample"])
+async def sample_hello():
+    return "hello world"
+
 @app.post("/session/start", response_model=SessionInitResponse, tags=["Session Management"])
 async def start_session():
     new_id = f"couple_session_{uuid.uuid4().hex[:6]}"
