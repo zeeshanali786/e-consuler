@@ -23,7 +23,7 @@ class ChatResponsePayload(BaseModel):
     counselor_response: str = Field(..., description="Empathetic reflective feedback generated from the counselor pipeline.")
     timestamp: datetime
 
-class RollingProfileSchema(BaseModel):
+class RollingProfileSchema(BaseModel): 
     couple_id: str
     recurring_conflicts: List[str]
     agreed_homework: List[str]
