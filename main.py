@@ -95,6 +95,15 @@ def background_extraction_task(couple_id: str, speaker: str, utterance: str):
     api_db.update_profile(couple_id, current_profile)
     print(f"[Async Worker] Database update committed successfully.")
 
+@app.get("/", tags=["Health"])
+async def root():
+    return {
+        "service": "AI Relationship Counseling Engine",
+        "status": "ok",
+        "docs": "/docs",
+        "sample": "/sample",
+    }
+
 @app.get("/sample", tags=["Sample"])
 async def sample_hello():
     return "hello world"
